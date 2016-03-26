@@ -1,0 +1,109 @@
+\documentclass{article}
+\title{Resumo artigo}
+\date{2013-09-01}
+\author{Gustavo Coelho}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage[brazil]{babel}
+\graphicspath{ {images/} }
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=30mm,
+ top=30mm,
+ right=20mm,
+ bottom=20mm,
+ }
+\begin{document}
+\begin{titlepage}
+        \begin{center}
+            \includegraphics[height=3cm]{logo.jpg}\\[0.3cm]
+            {\large Universidade de Brasília}\\[0.2cm]
+            {\large Faculdade Unb Gama}\\[0.2cm]
+            {\large Medição e Análise}\\[4.1cm]
+            {\bf \huge Software Metrics - Seção 3.1}\\[4.1cm]
+        \end{center}
+        \raggedleft{\normalsize Gustavo Rodrigues Coelho, 11/0030559}\\[0.7cm]
+        {\normalsize Professor(a): Elaine Venson}
+        \vfill
+        \begin{center}
+            {\large Brasília}\\[0.2cm]
+            {\large 2016}
+        \end{center}
+\end{titlepage}
+
+
+
+\newpage
+A seção "A goal-based framework for software measurement" contextualiza preocupações inerentes ao processo de medição de software. Primeiramente o autor aponta quais são as entidade mensurávies na indústria de software. Os três mais comuns são:
+\begin{itemize}
+\item    Processos
+        \begin{itemize}
+        \item[] Refere-se a como é construido software.
+        \end{itemize}
+\item    Produtos
+        \begin{itemize}
+        \item[] O que é produzido ao final do processo.
+        \end{itemize}
+\item    Recursos
+        \begin{itemize}
+        \item[] Materiais utilizados nos processos e para a construção dos produtos.
+        \end{itemize}
+\end{itemize}
+
+O artigo ainda aponta que as entidades podem ser mensurados em dois tipos de aspectos e as suas diferenças. Os dois aspectos descritos podem assim ser definidos:
+\begin{itemize}
+\item   Internos
+        \begin{itemize}
+        \item[] Os atributos internos referem-se a própria entidade.
+        \end{itemize}
+\item    Externos 
+        \begin{itemize}
+        \item[]  Verifica-se o impacto da entidade em um ambiente.
+        \end{itemize}
+\end{itemize}
+
+As caractéristicas dos aspectos internos permitem o maior controle de seus atributos tornando o processo de medição mais fácil para as organizações. Devido a isso, os aspectos internos são mensurado primeiramente do que os externos. Porém, as empresas de software são avalidas por aspectos externos - como falhas, confiabilidade, etc - o que levou as pesquisas na área de medição e análise a procurar como os aspectos internos afetam os aspectos externos.  
+
+O próximo passo do artigo é identificar quais os aspectos de cada entidade que podem ser mensurados. O primeiro a ser descrito são os processos.
+
+\begin{itemize}
+\item Processos
+    \begin{itemize}
+        \item[] Os processos tem como seus principais atributos a duração(tempos gasto para execução), o esforço(pessoas utilizadas) e os incidentes.  
+    \end{itemize}
+
+\item Produtos
+    \begin{itemize}
+        \item[] O objetivo principal da indústria de software é produzir software, sendo esse o principal produto. Por isso essa categoria tem dois tipos de atributos
+    \begin{itemize}
+        \item Externos
+            \begin{itemize}
+            \item[] Usabilidade e integridade.
+            \end{itemize}
+        \item Internos
+            \begin{itemize}
+            \item[] Tamanho e esforço.
+            \end{itemize}
+    \end{itemize}
+    \end{itemize}
+
+
+\item Recursos
+    \begin{itemize}
+        \item[] Pessoas 
+            \begin{itemize}
+                \item[] As pessoas são o principal insumo na indústria de software sendo portanto um grande foco de avaliação dentro da organização. Um aspecto a ser considerado pela equipe de medição das empresas é que diferente de outros processos a quantidade de software produzida pelo número de pessoas utilizadas pode não ser uma boa medida de produtividade. O autor recomenda a utilização de outros fatores para mensurar a produtividade da equipe. 
+            \end{itemize}
+        \item[] Materiais
+        \item[] Ferramentas
+    \end{itemize}
+\end{itemize} 
+
+O artigo finaliza descrevendo as dificuldades em encontrar medidadas básicas para compor medidas pois a medida composta tem que refletir aspectos relevantes para a organização. 
+
+
+
+\end{document}
