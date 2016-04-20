@@ -1,0 +1,52 @@
+\documentclass{article}
+\title{Resumo artigo}
+\date{2013-09-01}
+\author{Gustavo Coelho}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage[brazil]{babel}
+\graphicspath{ {images/} }
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=30mm,
+ top=30mm,
+ right=20mm,
+ bottom=20mm,
+ }
+\begin{document}
+\include{capa}
+
+\tableofcontents{}
+\newpage
+
+\section{Introdução}
+\subsection{Visão Geral}
+ O plano de Gerência de Configuração de Software(GCS) será o guia para se implementar as necessidade de GCS do projeto CodeSchool. O projeto esta sendo desenvolvido para auxiliar os alunos no processo de aprendizagem da disciplina de computação básica. O projeto visa construir uma plataforma web onde alunos possam interagir com colegas e professores facilitando seu desenvolvimento durante o período do curso. O projeto conta com alguns modulos que podem ser vistos abaixo: 
+
+\begin{itemize}
+    \item[] cs\_activities: Reune as atividades propostas pelo professor do curso.
+    \item[] cs\_core: Inclui as funcionalidades compartilhadas entre os módulos. 
+    \item[] cs\_linktable:  
+    \item[] cs\_questions: Gerencia e exibição das questões. 
+    \item[] cs\_auth: Cuida da autenticacão, cadastro e manutencão dos usuários. 
+    \item[] cs\_courses: Gerencia os cursos. 
+    \item[] cs\_pages: Eu nao sei ainda 
+    \item[] cs\_search: Eu nao sei 
+\end{itemize}
+
+O software CodeSchool pode ser encontrado no link à seguir:\\
+
+https://github.com/fabiommendes/codeschool.git \\
+
+O projeto se encontra em fase inicial de desenvolvimento não contando com muitos processos automatizados. No cenário atual o usuário deve baixar o código do repositório remoto e instalar as dependências utilizando o gerenciador de pacotes pip. Porém, são necessárias outras dependências que devem ser instaladas manualmente como o send\_box. O objetivo desse documento é levantar os principais problemas para criação do ambiente de desenvolvimento e estrátegias para solucionar esses problemas.
+
+\subsection{Próposito}
+Esse documento tem por objetivo propor um projeto para aplicação de práticas e e conceitos de gerência de configuração ao software no software CodeSchool. Esse projeto será desenvolvido durante a disciplina de GCS e tem com principal finalidade contribuir para a melhoria dos processos de contribuicao do softare CodeSchool. Com isso visamos facilitar a criacão de ambientes de desenvolvimento em ambientes Linux. 
+\subsection{Escopo}
+\newpage
+
+
+\end{document}
