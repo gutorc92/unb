@@ -1,0 +1,56 @@
+As notas descritas abaixo tem o próposito de auxiliar o estudo para a avaliacão da disciplina.
+
+Conceitos fundamentais
+    A verificacao e validacao visam garatir que o software esta adequado ao seu proposito. 
+    Software aqui é considerado no seu conceito amplo: código, documentacao, dados, e afins.
+
+    O conceito de validacao e verificacao pode assim ser descrito:
+        Validacao -> é o produto certo?
+        Verificacao -> o produto esta sendo feito corretamente?
+
+    Essas duas atividades podem ser vistas também como uma tendo carater interno e outra externo. 
+    A validacao exerce o papel externo e entendida do ponto de vista do cliente. Esse processo é realizado
+    quando o cliente verifica se o software construido é exatamente o desejado. 
+    A verificacao tem fins interno para que a equipe tenha certeza que esta construindo todos os artefatos
+    corretamente como especificado pelo processo produtivo do time. 
+
+    A execucao correata dos processos de verificacao e validacao necessita que alguns conceitos sejam definidos.
+    Os principais conceitos a serem observados são:
+        Erro: acao humana que produz impacto no software.
+        Defeito: condicao errada nos produtos do software. 
+        Falha: problema na execucao de um software. as falhas tem um caracter dinamico.
+    
+    Os erros podem gerar defeitos que causam falhas. A solucao para esses tres problemas deve ser o processo de v&val.
+
+    O conceito de qualidade pode ser descrito como o software que atende os requisitos do cliente e boas condicoes internas.    
+    Diferentes autores opiniam sobre esse ponto. 
+    A qualidade tem tres aspectos:  
+        Interna
+            Os objetos internos.
+        Externa
+            O software.
+        Em uso
+            O software funcionando.
+
+    FURPS(funcionalidade,usabilidade,confiabilidade,performace,suportabilidade)
+
+
+    As aulas se concentram bastante em testes. Esse topico tende a dividir os testes em tipos:
+    Unitario, Integracacao, Funcionais.
+
+    Os testes unitarios testam a menor parte do software como métodos e classes e tem o carater 
+    de ser de caixa branca. O integracao pode ser entendido como testes de estruturas que trabalham
+    conjuntamente. Esse tipo de teste tem duas formas de abordagem: top-down ou botton-up. No primeiro
+    caso os componentes de alto nível são testados e os de baixo nível que ainda nao estejam implementados
+    sao simulados. A abordagem botton-up executa o mesmo procedimento so que na ordem inversa.
+    Os testes funcionais sao do tipo black-box e tendem a ser voltados para verificar se a funcionalidade 
+    desejada funciona de acordo com o planejado.
+    
+        
+    O CMMI é modelo para a orientacao das organizacoes para a estruturacao de suas atividades. A verificacao
+    e a validacao estao incluidas nesse modelo. O modelo teoriza que os processos devem possuir capacidades
+    entre os seus níveis de maturidade. Os processos de V&Val aparecem no nível 3 do CMMI. O CMMI define
+    tres metas para o processo de verificacao: preparar para a validacao, realizar revisao em pares e 
+    verificar produto de trabalhos selecionados. Por outro lado, o processo de validcao define duas metas
+    preparar para a validacao e validar o produto ou componente do produto. O CMMI especifica como cada meta
+    deve ser realizada.         
