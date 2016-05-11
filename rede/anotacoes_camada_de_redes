@@ -12,7 +12,7 @@
     O professor faz uma breve explicacao sobre circuitos virtuais
     - tecnologia usada para conectar hosts baseada na rede tele
     fonica - para se mostrar a diferenca entre o sitema de comu
-    tacao de pacotes. O circuito virtual criar um caminha unico
+    tacao de pacotes. O circuito virtual cria um caminho unico
     entro o emissor e o recptor, a principal desvantagem dessa 
     abordagem é que uma vez caida a conexao de um dos roteadores
     do caminho os end systems nao podem se comunicar mais. Alem,
@@ -24,7 +24,7 @@
     o ip de destino. Assim, roteadores do nucleo de rede podem 
     definir o melhor caminho para os pacotes de forma dinamica. 
     Alem de pode ocupar todas as conexoes entre o proximo roteador
-    aumento a velocidade de transmissao. 
+    aumentando a velocidade de transmissao. 
    
     O proximo passo é explicar a arquitetura interna de um roteador.
     Considerando as duas funcoes do roteador interna e externa.  
