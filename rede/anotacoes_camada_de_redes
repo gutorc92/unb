@@ -1,0 +1,81 @@
+    A camada de rede tem como saida um datagrama.
+    Os dois principais servicos da camada de rede sao:
+        1. encaminhamento: servico interno dos roteadores.
+            Utilizado para indentificar para qual porta enviar 
+            o pacote que chegou ao roteador. 
+        2. roteamento: servico externo
+            Utilizado para saber qual o proximo host deve ser
+            mandado o pacote.
+    A camada de rede esta presente nos roteadores diferente
+    da camada de transporte e aplicacao.
+
+    O professor faz uma breve explicacao sobre circuitos virtuais
+    - tecnologia usada para conectar hosts baseada na rede tele
+    fonica - para se mostrar a diferenca entre o sitema de comu
+    tacao de pacotes. O circuito virtual criar um caminha unico
+    entro o emissor e o recptor, a principal desvantagem dessa 
+    abordagem é que uma vez caida a conexao de um dos roteadores
+    do caminho os end systems nao podem se comunicar mais. Alem,
+    do baixo aproveitamento da rede pois se houver mais de uma 
+    ligacao entre roteadores os circuitos virtuais somente usarao
+    uma delas. A comutacao de pacotes nao se preocupa em estabelecer
+    um caminho unico. Os pacotes sao jogados na rede e espera-se
+    que estes cheguem ao destino uma vez que os datagramas possuem
+    o ip de destino. Assim, roteadores do nucleo de rede podem 
+    definir o melhor caminho para os pacotes de forma dinamica. 
+    Alem de pode ocupar todas as conexoes entre o proximo roteador
+    aumento a velocidade de transmissao. 
+   
+    O proximo passo é explicar a arquitetura interna de um roteador.
+    Considerando as duas funcoes do roteador interna e externa.  
+    Um roteador é um componente da rede que tem por funcao o encaminhamento
+    e o roteamento de pacotes. Portanto, o roteador pode ser visto
+    como um sistema onde a entrada são pacotes e a saidas sao pacotes.
+    Internamente o roteador ira transferir os pacotes das portas
+    de entrada para as portas de saida. Uma visualizacao mais especifica
+    o processo de entrada pode ser visto como o recebimento pelo enlace,
+    o enfileiramento do pacote recebido e o seu encaminhamento para a porta 
+    de saida. Vale notar que esse processo na porta de entrada pode
+    ter enfileiramentos e perdas de pacote caso a taxa de encaminhamento
+    seja maior que a de recebimento. 
+    A segunda funcao do roteador que é o encaminhamento pode ser feita
+    de acordo com a arquitetura do roteador. As tres principais formas
+    sao comutacao por memoria, barramento e barramento compartilhado.
+    As tres formas sao utilizadas hoje em dia. Na primeira forma o roteador
+    escreve da memoria da porta de entrada na memoria da porta de saida,
+    no segundo caso a porta de saida joga o pacote no barramento que é recuperado
+    pela porta correta, o terceiro caso as portas sao ligadas por mais de
+    um barramento otimizando as transferencias entre portas.
+    O processamento nas portas de saida sao bem parecidos com os da porta
+    de entrada podendo gerar atrasos tambem. 
+    Para que nao haja perda de pacotes por fata de memoria a quantidade
+    de memoria necessaria em um roteador é calculada segunda uma formula
+    pratica que pode cair na prova
+        B = RTT * (C/(N)^1/2) onde c é a capacidade do enlace, 
+                                   n o numero de portas e
+                                  rtt o atraso medio
+
+    IP é um numero de indentificacao composto por 32 bits. Para facilitar
+    os mecanismos de roteamento foi desenvolvido uma mascara para que
+    os roteadores conhecessem os caminhos para rotear pacotes e facilitar
+    a construcao de subredes. Assim, os ips usam um numero de mascara
+    que varia de 1 a 32 bit. A notacao utilizada normalmente é designada
+    como 192.168.287.278/23. O numero 23 indica a mascara. Em termos, praticos
+    os ips apos os bits indicados na mascara estarao abaixo do roteador.
+    Por exemplo: 192.168.287.278/24 siginfica que todos os ips entre
+    192.168.287.0-255 estao abaixo do ip 192.168.287.278. 
+    
+    Existe uma protocolo chamado icmp para a comunicacao entre roteadores.
+    Basicamente sao pacotes com informacao entre os roteadores podendo
+    informar se um ip nao foi encontrado ou se a porta nao foi encontrada.
+    
+    Devido a limitacao do ip4 foi desenvolvido o ip6 que possibilita 
+    um maior numero de enderecamento. O cabecalho do ip6 foi modificado
+    retirando alguns campos e transformado em tamanho fixo(40 bytes). Os enderecos
+    ip6 possuem 128 bits. Duas possibilidades podem ser usadas para a integracao
+    de redes ip4 com ip6. A primeira é transforma um pacote ip6 em ip4 quando 
+    um roteador implementar apenas esse tipo de servico com perda de informacoes
+    para o ip6. A segunda forma é o tunelamento onde o datagrama ip6 é colocado
+    dentro de um pacote ip4. No ip6 nao ha a possibilidade de segmentacao dos
+    datagramas como no ip4. 
+    
