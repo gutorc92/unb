@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y  sqlite3 \
 RUN pip install --upgrade pip
 
 RUN pip install beautifulsoup4==4.4.1 \
-				boxed==0.2.5 \
+				boxed==0.3.0 \
 				bs4==0.0.1 \
 				decorator==4.0.9 \
 				Django==1.9.5 \
@@ -34,6 +34,7 @@ RUN pip install beautifulsoup4==4.4.1 \
 				easy-thumbnails==2.3 \
 				ejudge==0.3.7 \
 				frozendict==0.6 \
+				fake-factory==0.5.7 \
 				html2text==2014.12.29 \
 				html5lib==0.9999999 \
 				iospec==0.2.3 \
