@@ -1,0 +1,32 @@
+Anotacoes
+	O capitulo sobre camada enlace trata da conecao ponto a ponto, 
+ou seja, como um host se conecta como o proximo host. Sendo assim,
+é importante lembrar desse capitulo alguns pontos:
+	1) O princial objetivo da camada de enlace é a deteccao de erros
+e sua correcao. Além do enderecamento de areas locais.
+	2) A camanda de enlace encapsula os datagramas da camada ip
+em frames. 
+	3) O enlace é implementado na placa de rede devido a necessidade
+de processamento rapido.
+	4) A deteccao de erro é feita através do metodo CRC
+	5) Há varias formas de se fazer o acesso a camada de enlance
+dentre eles: particionamento de canal, acesso randomico, pegar turnos
+	6) O processo de entrar na rede é muito parecido com o processo
+dhcp. O entrande envia sinais de brodcast para a rede e o roteador
+mais proximo irá responder com seu endereco MAC. Assim, o entrante
+pode usar esse MAC para mandar as proximas requisicoes. Cada roteador
+no caminho altera o endereco MAC do frame colocando o endereco do proximo
+host. 
+	7) O frame é composto de:
+		preamble | dest mac | src mac | type | payload | CRC
+
+
+As redes multimidia
+	Esse capitulo trata de solucoes para o roteamento de multimidia.
+Multimidia se torna um problema devido a grande demanda de banda 
+necessaria para operar esse tipo de servico. Os mais conhecidos
+tipos de midia sao transmissao de video e chamadas telefonicas.
+	Durante o capitulo é descrito o protocolo rtp que é construido
+em cima do protocolo udp, mas também é considerado um protocolo 
+da camada de transporte.
+	payloadtype | sequence # | time stamp | source id | other fields

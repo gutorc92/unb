@@ -1,0 +1,52 @@
+
+
+Uma questao da prova provavelmente irá se relacionar com o processo 
+de teste descrito no slide. Uma outra questao será prencher uma tabela
+com o roteiro dos testes dada no ultimo slide do professor. 
+Essa tabela não é de forma alguma complexa para quem já fez testes
+porém alguns conceitos devem ser diferenciados
+	foco de qualidade
+		funcional, desempenho, amigabilidade, portabilidade
+		fdap
+	nível
+			unitario, integracao, funcional, aceitacao
+			nifa
+	técnica
+		caixa branca, caixa preta
+
+O restante dos campos da tabela são bem auto explicativos.
+O processo de teste é razoavelmente alto explicativo sendo
+a primeira parte maior por ter um porcentagem maior de 
+carga de trabalho. Basicamente o processo pode ser resumido 
+assim:
+	planejar -> preparar ambiente -> testar -> analisar resultados
+
+As três ultimas fases são alto explicativas portanto somente 
+vale descrever a primeira:
+Planejar envolve tres atividades:
+	definir objetivo e escopo -> definir abordagens -> planejar ambiente de testes
+
+Durante a atividade de definicão de abordagem é necessario definir 
+as seguintes questoes:
+Niveis do teste, tipo de teste, metodos e técnicas, manuais e automatizados e onde testar
+Vale resaltar que nivel e metodos e técnicas sao condizentes com os conceitos apresentados
+anteriormente porem tipo se refere a desempenho, integridade, regressao, etc.
+Vale resaltar a diferenca entre estratégia, plano e roteiro.
+Estrategia baseada no nível e tipos. 
+Plano : baseado na estrategia
+Roteiro: baseado no plano
+
+
+
+
+Sobre o v&val no contexto ágil:
+
+o manifesto ágil introduziu a ideia de que código funcionando é mais
+importante do que a documentacao ou melhor dizendo o produto deve ser
+sempre mais importante que o processo. A disciplina de veval é encontrado
+nesse processo de desenvolvimento nos chamados testes agéis. Diferentemente
+dos processo tradicionais, no agil, a a qualidade é estabelecida pelo cliente
+sendo o testador um membro da equipe de desenvolvimento e não mais um papel
+separado. O TDD foi uma ténica criada para o desenvolvimento de software voltado
+para testes, porém se mostrou trabalhosa ferindo um principio agil do processo
+não atrapalhar o produto. 
