@@ -1,0 +1,69 @@
+A prova provavelemente terá questões sobre estimativa de esforco
+usando as tres metodologias apresentadas pela professora:
+	Pontos de funcao
+	pontos de caso de uso
+	cosmic
+
+Os pontos de caso de uso é uma metodologia razoavelmente
+fácil por boa parte dela nao precisar ser executada
+em um exercicio de aula.
+A metodologia segue os seguintes passos:
+	contar atores -> contar casos de usos -> fatores de sistema
+	-> fatores ambientes -> ajustar atores e casos de usos
+
+os tres ultimos pontos provavelmente não serão exigidos
+na prova, dado que necessitam de informacoes do time ou
+requisitos mais complexos. Os dois primeiros pontos
+são simples de se calcular. Os atores tem tres tipos
+de contagem possiveis:
+	complexo: qualquer ator que interage por interface 
+			  grafica (a maioria dos atores)
+	médio: sistema externo que interage com o sistema
+	baixo: sistema externo que nao interage
+
+São atribuidos 3,2 e 1 pontos rescpectivamente ao tipo
+de complexidade.
+Os pontos de caso de uso, por sua vez, tem seus pontos
+atribuidos a partir do número de transacoes realizadas
+por esses. 
+	Tipo      Pts   Transacoes
+	simples - 5 - 3
+	medio - 10 - 4 a 7
+	complexo - 15 - >7
+Uma transacao é uma interacao entre o usuario e o sistema, ou seja,
+usuario faz uma acao e o sistema retorna algo para ele é contada
+uma transacao.
+Essa tabela pode ser confundida coms os pontos de funcao
+cuidado.
+Somando-se os pontos de ator e de casos de uso chegasse
+ao tamanho so software. 
+	Os outros tres passos do processo sao usados para
+ajustar o tamnho do software por isso seus valores 
+sao multiplicados pelos pontos de atores e casos de uso.
+
+Como os outros pontos são calculados:
+	Os fatores de sistema e ambientes tem uma lista
+de possiveis razoes que afetam o projeto cada uma
+com seu respectivo peso. Para cada uma dessas razoes
+é atribuido um valor entre 0 e 5 onde zero essa razao
+nao afeta o projeto e 5 afeta radicalmente o projeto.
+Após atribuir os valores esses sao multiplicados pelo peso.
+Ao final é utilizado-se uma formula para o valor final.
+	O calculo pode ser visto da seguinte forma:
+	Razao Peso Valor Total
+	1     2    3     6
+    2     1    2     2
+			Total:   8
+
+	O valor oito é utilizado na formula para se chegar ao 
+valor final.
+Para os fatores de sitema temos a formula:
+	TFC = 0,6 + (0,01 * Total)
+e para os fatores ambientais:
+	EF = 1,4 + (-0,03*Total)
+Os valore de TFC e EF sao entao multiplicados pelos
+pontos de atores e casos de uso se chegando a medicao final.
+Os calculos de tfc e ef não deveram cair na prova porque
+sao trabalhosos de calcular e exigem muita informacao o
+que daria muito trabalho para a professora. 
+

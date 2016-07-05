@@ -1,0 +1,15 @@
+A medidas para se verificar o rendimento
+de um fundo.
+	Uma delas é o retorno sobre o capital
+investido, dado por:
+	r = (final / inicial) - 1
+
+	Uma forma de comparar fundos com o mesmo rendimento final
+é através da sharpe ratio, dado por:
+	sharpe ratio = sqrt(time) * (mean(daily returns)/stdev(daily returns))
+	
+	onde, time é o periodo de tempo a ser calculado nesse caso 250 que é o numero de dias no ano.
+	
+	Sharpe ratio demonstra o risco assumido em um determinado fundo. Quanto maior o valor de sharpe ratio melhor será o fundo. Por utilizar o retorno essa metrica demonstra a relacao do investido pelo risco.
+	
+
