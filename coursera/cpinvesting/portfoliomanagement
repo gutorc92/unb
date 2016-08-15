@@ -10,6 +10,34 @@ investido, dado por:
 	
 	onde, time é o periodo de tempo a ser calculado nesse caso 250 que é o numero de dias no ano.
 	
-	Sharpe ratio demonstra o risco assumido em um determinado fundo. Quanto maior o valor de sharpe ratio melhor será o fundo. Por utilizar o retorno essa metrica demonstra a relacao do investido pelo risco.
+	Sharpe ratio demonstra o risco assumido em um determinado fundo. Quanto maior o valor de 
+	sharpe ratio melhor será o fundo. Por utilizar o 
+	retorno essa metrica demonstra a relacao do investido pelo risco.
 	
+Market Mechanics
+The order book representa um livro onde todas as ordens feitas para um mercado sao 
+mostradas, tanto as ordens de compra qto as ordens de venda.
+A velocidade da transacao representaca um fator de sucesso nos mercados, pois, uma empresa pode fazer 
+operacoes de compras e vendas rapidamente ganhando sobre as transacoes. 
+O desenvolvimento de uma estrategia de investimento segue a seguinte estrutura:
+Historico de dados mais o porfifolio almeijado sao subsidios para um algoritmo
+que produz as ordes levadas ao mercado. O mercado responde a essas orders
+formado o portifolio real, esse ciclo continua ate que o portifolio almeijado
+seja o mesmo que o portifolio real.			
+target portifolio							orders
+		+             trading algorithm						 market
+historical data								live portifolio
+			 
+O portifolio almeijado é construido da seguinte forma:
+	n-day forcast
+		+
+	current portifolio   ->			portifolio optimizer =   target portifolio
+		+
+	historial data	
+
+Os dados do dias mais as informacoes do portifolio atual combinados com dados
+historicos sao processados por um algoritmo de otimiazacao para produzir o 
+portifolio desejado.
+Por ultimo o n-day forcats pode ser produzido com informacoes, dados historicos
+e um algoritmo que process o que é importante.
 
