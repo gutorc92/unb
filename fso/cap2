@@ -1,0 +1,31 @@
+O capitulo 2 do livro visa entender os servicos
+que um sistema operacional oferece.
+
+Um sistema operacional pode oferecer dois tipo de 
+interface para interacão com o usuário. Linha de 
+comando ou interface gráfica.
+
+Chamadas de sistema
+	Sao funcões fornecidas pelo sistema
+operacional pra executar determinadas tarefas. 
+As chamadas podem ser padronizas entre os diversos
+sistemas operacionais porém podem ser implementadas
+de diferentes formas. A padronizacao facilita o trabalho
+dos desenvolvedores. 
+	Tipo de chamada de sitema
+		Controle de processo
+			Funcoes relacionadas com o controle de processos
+			como: terminar, abortar, carregar, executar, esperar
+		Controle de arquivos
+			Manipulacao de arquivos com funcoes como: criar,
+			deletar, ler, escrever e tambem modificar seus 
+			atributos(nome, dono, acesso).
+		Controle de dispositivos
+			Os sistems operacionais permitem controlar os dipositivos
+			que compoem o pc como: disco rigido, som, camara, etc. 
+			Essas funcoes são bem parecidas com as de manipulacao de
+			arquivo.
+		Manutencao
+			Rotinas que ajudam debuggar um programa que esta sendo 
+			executado.
+		
