@@ -1,0 +1,15 @@
+4 Oportunidades de negócio
+As atividade acadêmicas - como selecionar, apresentar trabalho de conclusão de curso - necessitam de espaços 
+físicos para serem realizadas em dias e horários específicos. 
+A alocação desses recintos é feita de forma semiautomática causando, as vezes, transtornos de reservas repetidas
+ ou massivo trabalho para os funcionários da unidade acadêmica. O SAS visa construir um software que auxilie 
+o processo de alocação feito hoje e expanda suas funcionalidades  para o corpo discente da universidade. 
+6 Restrições e riscos
+6.1 Restrições
+	O projeto SAS deve obedecer as seguintes restrições:
+	1. Ser desenvolvido para plataforma web.
+	2. Utilizar a linguagem Python conjuntamente com o framework Django.
+	3. Atender as necessidades do campus Gama da universidade de Brasília.
+6.2 Riscos
+	1. Integrantes do grupo abandonarem a disciplina.
+	2. Integrantes não absorverem as tecnologias para o desenvolvimento do projeto. 
