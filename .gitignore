@@ -1,4 +1,6 @@
 *.aux
 *.log
+*.pyc
 unb.wiki/
 gpp/00-Disciplina/
+/das/.ipynb_checkpoints/

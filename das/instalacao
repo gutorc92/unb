@@ -1,0 +1,14 @@
+Professor,
+
+Durante o processo de instalação tive um problema com a biblioteca caffe.
+Executando o python em qualquer pasta e tentando importar a biblioteca
+ela não era encontrada ou um biblioteca de so usada pela caffe não era 
+encontrada. O problema foi resolvido criando-se um link simbólico do 
+diretório caffe/python/caffe para o diretório usr/lib/python2.7/dist-packeges/.
+A mesma solução funciona para quem utiliza ambientes virtuais.
+
+Em anexo a imagem do erro.
+
+Att,
+
+Ps: não consegui mandar no moodle. 
