@@ -1,0 +1,10 @@
+Os arquivos foram utilizados para desenvolver uma possível resposta
+para a primeira atividade proposta.
+Os arquivos enviados são:
+	models.py - classes onde o código foi desenvolvido inicialmente
+	main.py - executável para o programa
+	cats.jpg - imagem de teste
+	synset_cats - indices de classes de felinos
+	synsets_dogs - indeces de classes de caninos
+	haarcascade_frontalface_alt.xml - usado no algoritmo de reconhemimento
+	Reconhecimento de faces e animais.ipynb - jupyter notebook
