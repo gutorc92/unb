@@ -3,8 +3,22 @@ para a primeira atividade proposta.
 Os arquivos enviados são:
 	models.py - classes onde o código foi desenvolvido inicialmente
 	main.py - executável para o programa
-	cats.jpg - imagem de teste
+	img/ - diretório com os arquivos para teste
 	synset_cats - indices de classes de felinos
 	synsets_dogs - indeces de classes de caninos
 	haarcascade_frontalface_alt.xml - usado no algoritmo de reconhemimento
-	Reconhecimento de faces e animais.ipynb - jupyter notebook
+	
+Para executar o arquivo pasta alterar as variáveis
+dic_root ecaffe_root para apontarem para onde os arquivos foram descompactados
+e onde está a biblioteca caffe, respectivamente.
+
+Para executar o programa basta rodar o comando
+	python main.py arquivo_para_imagem
+
+Release notes:
+	Nessa versão foram criadas duas novas classes: uma para tratar
+a saída para o usuário e uma para criar a rede que reconhece as faces.
+Assim, o código ficar mais limpo e reutilizável. A rede foi separada
+em uma classe para facilitar possíveis manutencões. A classe net também
+foi refatorada para ter métodos responsáveis por criar os varios atributos
+que são usados na classe.  
