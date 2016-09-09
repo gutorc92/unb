@@ -111,7 +111,7 @@ class Net:
 				total_cats += per
 			elif cls.split()[0] in self.dogs:
 				total_dogs += per		
-		return total_dogs,total_cats
+		return total_dogs*100,total_cats*100
 
 class Input:
 
@@ -156,3 +156,24 @@ class Input:
 			return self.img
 		else:
 			return self.load
+
+class Output:
+	
+	def outFaces(self,faces):
+		if(len(faces) > 0):
+			print("Foram detectadas {0} faces").format(str(len(faces)))
+			print("As coordendas das faces: ")
+			for face in faces:
+				print(face)
+		else:
+			print("Nao foram encontradas faces")
+	
+	def outAnimals(self,dogs,cats):
+		if(dogs > 0):
+			print("A probabilidade de haver caninos na imagem e de: {0}").format(str(dogs))
+		else:
+			print("Nao ha caninos na imagem")
+		if(cats > 0):
+			print("A probabilidade de haver felinos na imagem e de: {0}").format(str(cats))
+		else:
+			print("Nao ha felinos na imagem")
