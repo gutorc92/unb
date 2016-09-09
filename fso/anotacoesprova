@@ -1,0 +1,85 @@
+Os objetivos do sistema operacional são:
+	- Funcionar como um intermediário para os programas de usuário
+	- Maximizar o uso do hardware
+	- Facilitar o uso dos sistemas
+
+Um OS pode ser assim visto:
+	- Alocador de recursos
+	- Gerenciador de recursos
+
+Bootstrap é o programa responsável por iniciar todo o sistema
+inclusive o SO.
+Um sistema operacional é orientado a interrupcões. Quando um dispositivo
+termina seu trabalho, ele lanca uma interrupcão para o SO.
+
+Um sistema operacional fornece uma api basisca chamada de operacoes 
+de sistema. As operacoes de sistema fazem trabalhos básicos como
+criar arquivo, ler da memomoria e outras operacoes. As chamadas
+de sistema executam em kernel mode. 
+
+
+
+O conceito mais importante dessa primeira parte da materia é o de processo.
+Processo é um programa sendo executado. O sistema operacional deve guardar
+várias variavéis do processo para que seja possivel parar sua execucao 
+e retomar quando necessário. 
+Um processo pode ter quatro estados:
+	pronto executando aguardando terminado
+
+O SO permite que um processo seja retirado da cpu quando esse necessita
+de alguma operacao fora dela como por exemplo I/O. Assim, um outro 
+pode usar a cpu maximizando o uso desse recurso. Para salvar um processo
+e recupera-lo o SO precisa de varias informacoes sobre ele como: onde estao
+as variaveis utilizadas, qual instrucao estava sendo executada, etc.
+Assim, o processo é uma das principais estruturas do SO.
+
+Um SO somente cria processo através de outros processos. Assim,
+quando ele se inicia ele cria um processo pai responsável por criar
+os outros processos. Quando um processo filho é criado ele pode 
+perdurar na memoria ou ser finalizado pelo seu pai. 
+
+Um grande problema dos SOs é garantir a comunicacão entre processos.
+Isso pode ser feito através de filas ou de espacos de memorias compartilhados.
+As duas abordagens levam a problemas de sicronizacão:
+
+Thread são processos leves. Devido aos problemas de comunicacao entre processos
+que podem causar overhand e falhas foram criadas as threads. Elas podem oferecer
+paralelismo em arquiteturas mute core melhorando o desempenho das aplicacões.
+As threads ainda podem acessar partes das memeorias dos seus processos pais
+facilitando a comunicacao.
+
+
+Escalonamento
+Método pelo qual o SO escolhe os processos para serem executados na fila.
+O algoritimos de escalonamento tentam atender os seguintes requisitos:
+	- máxima utilizacao da cpu
+	- maximo de processos terminados por tempo
+	- tempo de execucao de um processo
+	- tempo de espera na fila
+    - tempo de resposta
+
+Obviamente nem todos esses critérios podem ser atendidos em uma unica 
+abordagem. Então, os algoritmos focam em um ou dois pontos e podem
+ser usados de forma combinada. A fila de processo ainda pode
+ser dividida em uma ou mais filas, por exemplo, nos processos
+que rodam em background e os que rodam em foreground.
+
+	- FCFS 
+		Executa o primeiro processo na fila. Pode haver longos
+		tempos de espera.
+	- SJF
+		Executa o processo que precisa do menor tempo primeiro.
+		Esse algoritmo usa um método estatisco pra estimar
+		o quanto de tempo de cpu o processo ira requisitar.
+		A estimativa pode ser calculada por:
+			t = atn + (1 - a)tn
+			a = 1/2 normalmente
+	- Fila de prioridade
+		Atribui um inteiro mostrando a prioridade para cada
+		processo. Um problema desse algoritimo é a possibilidade
+		de um processo com baixa prioridade nunca ser executado.
+		Pode ser usado combinado com SJF.
+	- Round Robin
+		Um valor fixo chamado quantum é dado para cada processo.
+		Apos ser executado o processo vai pro final da fila.
+		

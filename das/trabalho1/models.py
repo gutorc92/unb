@@ -9,49 +9,66 @@ import urllib
 dic_root = "/home/gustavo/Documents/unb/das/trabalho1"
 caffe_root = "/home/gustavo/caffe"
 
-class Face:
-	
-	def __init__(self,frame=None):
-		self.faces = None
-		self.frame = frame
+class NetFace:
+	def __init__(self):
 		path = os.path.join(dic_root,"haarcascade_frontalface_alt.xml")
 		self.classifier = cv2.CascadeClassifier(path)
+	def classifierImage(self,miniframe):
+		return self.classifier.detectMultiScale(miniframe)
 
-	def detect(self):
-		height, width, depth = self.frame.shape
+class Face:
+	def __init__(self,net=NetFace()):
+		self.net = net
+	
+	def detect(self,frame):
+		height, width, depth = frame.shape
 
 		# create grayscale version
-		grayscale = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
+		grayscale = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 	 
 		# equalize histogram
 		cv2.equalizeHist(grayscale, grayscale)
 
 		# detect objects
 		DOWNSCALE = 4
-		minisize = (self.frame.shape[1]/DOWNSCALE,self.frame.shape[0]/DOWNSCALE)
-		miniframe = cv2.resize(self.frame, minisize)
-		faces = self.classifier.detectMultiScale(miniframe)
-		self.faces = faces
-
-	def result(self):
-		if not(self.faces): self.detect()
-		return self.faces
+		minisize = (frame.shape[1]/DOWNSCALE,frame.shape[0]/DOWNSCALE)
+		miniframe = cv2.resize(frame, minisize)
+		faces = self.net.classifierImage(miniframe)
+		#if len(faces)>0:
+			# print 'face detected!'
+		#	for i in faces:
+		#		x, y, w, h = [ v*DOWNSCALE for v in i ]
+		#		cv2.rectangle(frame, (x,y), (x+w,y+h), (0,255,0))
+		#cv2.imshow('frame',frame)
+		#cv2.waitKey(0)
+		#print("Faces: ", len(faces))
+		return faces
 
 class Net:
 
 	def __init__(self):
+		self.create_net()
+		self.create_mu()
+		self.create_transformer()
+		self.create_labels()
+		self.loadsynset()
+
+	def create_transformer(self):
+		self.transformer = caffe.io.Transformer({'data': self.net.blobs['data'].data.shape})
+		self.transformer.set_transpose('data', (2,0,1))
+		self.transformer.set_mean('data', self.mu)      
+		self.transformer.set_raw_scale('data', 255)      
+		self.transformer.set_channel_swap('data', (2,1,0)) 
+		
+	def create_mu(self):
+		self.mu = np.load(os.path.join(caffe_root, 'python','caffe','imagenet','ilsvrc_2012_mean.npy'))
+		self.mu = self.mu.mean(1).mean(1)  
+
+
+	def create_net(self):
 		model_weights = os.path.join(caffe_root, 'models','bvlc_reference_caffenet','bvlc_reference_caffenet.caffemodel')
 		model_def = os.path.join(caffe_root, 'models', 'bvlc_reference_caffenet','deploy.prototxt')
 		self.net = caffe.Net(model_def,model_weights,caffe.TEST)
-		mu = np.load(os.path.join(caffe_root, 'python','caffe','imagenet','ilsvrc_2012_mean.npy'))
-		mu = mu.mean(1).mean(1)  
-		self.transformer = caffe.io.Transformer({'data': self.net.blobs['data'].data.shape})
-		self.transformer.set_transpose('data', (2,0,1))
-		self.transformer.set_mean('data', mu)      
-		self.transformer.set_raw_scale('data', 255)      
-		self.transformer.set_channel_swap('data', (2,1,0)) 
-		self.create_labels()
-		self.loadsynset()
 
 	def create_labels(self):
 		labels_file = os.path.join(caffe_root, 'data','ilsvrc12','synset_words.txt')
