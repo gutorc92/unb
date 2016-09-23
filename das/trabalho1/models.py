@@ -44,36 +44,27 @@ class Face:
 		#print("Faces: ", len(faces))
 		return faces
 
+class NetData:
+
+	def __init__(self,net,transformer,labels):
+		self.transformer = transformer
+		self.labels = labels
+		self.net = net
+
+	def get_transformer(self):
+		return self.transformer
+
+	def get_labels(self):
+		return self.labels
+	
+	def get_net(self):
+		return self.net
+
 class Net:
 
-	def __init__(self):
-		self.create_net()
-		self.create_mu()
-		self.create_transformer()
-		self.create_labels()
+	def __init__(self,net,transformer,labels):
+		self.netData = NetData(net,transformer,labels)
 		self.loadsynset()
-
-	def create_transformer(self):
-		self.transformer = caffe.io.Transformer({'data': self.net.blobs['data'].data.shape})
-		self.transformer.set_transpose('data', (2,0,1))
-		self.transformer.set_mean('data', self.mu)      
-		self.transformer.set_raw_scale('data', 255)      
-		self.transformer.set_channel_swap('data', (2,1,0)) 
-		
-	def create_mu(self):
-		self.mu = np.load(os.path.join(caffe_root, 'python','caffe','imagenet','ilsvrc_2012_mean.npy'))
-		self.mu = self.mu.mean(1).mean(1)  
-
-
-	def create_net(self):
-		model_weights = os.path.join(caffe_root, 'models','bvlc_reference_caffenet','bvlc_reference_caffenet.caffemodel')
-		model_def = os.path.join(caffe_root, 'models', 'bvlc_reference_caffenet','deploy.prototxt')
-		self.net = caffe.Net(model_def,model_weights,caffe.TEST)
-
-	def create_labels(self):
-		labels_file = os.path.join(caffe_root, 'data','ilsvrc12','synset_words.txt')
-		self.labels = np.loadtxt(labels_file, str, delimiter='\t') 
-		
 
 	def loadsynset(self):
 		f = open("synset_cats","r")
@@ -86,19 +77,19 @@ class Net:
 
 	def predict_imageNet(self,image_filename):
 		image = caffe.io.load_image(image_filename)
-		self.net.blobs['data'].data[...] = self.transformer.preprocess('data', image)
+		self.netData.get_net().blobs['data'].data[...] = self.netData.get_transformer().preprocess('data', image)
 
 		# perform classification
-		self.net.forward()
+		self.netData.get_net().forward()
 
 		# obtain the output probabilities
-		output_prob = self.net.blobs['prob'].data[0]
+		output_prob = self.netData.get_net().blobs['prob'].data[0]
 
 		# sort top five predictions from softmax output
 		top_inds = output_prob.argsort()[::-1][:5]
 
 
-		predictions = zip(output_prob[top_inds], self.labels[top_inds])
+		predictions = zip(output_prob[top_inds], self.netData.get_labels()[top_inds])
 
 		return predictions
 
