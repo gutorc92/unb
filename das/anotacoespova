@@ -1,0 +1,30 @@
+Os padroes vistos até agora
+	fabrica abstrata
+	singleton ou lazy initialization
+
+	Os dois acima sao bem simples podendo gerar alguma confusao quanto
+	ao diagrama uml.
+
+	Object Pool Pattern
+		Extensao do singleton para mais de uma isntancia. Também tem como
+		objetivo reduzir o custo de inicializacao de um objeto.
+
+	Multiton
+		Extensao do singleton usando um hashmap assim é possivel estender
+		o singleton ainda criando labels para as instancias. considerado
+		anti-pattern
+
+	Iterator Pattern
+		Uma class abstrata para interar em uma determinada estrutura de dados.
+		Assim, a classe deve implementar o metodo next e algumas vezes prev.
+		
+
+	Adapter
+		Encapsula um objeto permitindo mudar suas interfaces e adaptando-os
+		para um certo tipo se necessário.
+
+	Facade
+		Encapsula uma série de chamadas de objeto em um unico reduzindo
+		a exposicao dos objetos os quais encapsula.
+
+	
