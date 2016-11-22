@@ -1,6 +1,15 @@
 from django.shortcuts import render
 from django.views import View
 from .forms import FileFieldForm
+from django.conf import settings
+from extern import Input, Net, Face, Output
+import os
+from os import walk
+
+path_img = os.path.join(settings.BASE_DIR, "images")
+face = Face()
+n = Net()
+o = Output()
 
 def handle_uploaded_file(f, name):
     with open(name, 'wb+') as destination:
@@ -10,14 +19,19 @@ def handle_uploaded_file(f, name):
 class CreateGallery(View):
 
     def post(self, request):
-        print(request)
-        print(request.FILES)
         files = request.FILES.getlist('file_field')
-        print(files)
         form = FileFieldForm(request.POST, request.FILES)
         if form.is_valid():
-            print("Passou aqui")
-            handle_uploaded_file(request.FILES['file'], "/home/gustavo/Documents/image")
+            for f in files:
+                handle_uploaded_file(f, os.path.join(path_img, f.name))
+            for (dirpath, dirnames, filenames) in walk(path_img):
+                for f in filenames:
+                    print(f)
+                    d = Input(os.path.join(path_img,f))
+                    o.outFaces(face.detect(d.getImage(Input.FACES)))
+                    dogs,cats = n.result(d.getImage(Input.PREDICTION))
+                    o.outAnimals(dogs,cats)
+
             return self.get(request)
 
         else:
