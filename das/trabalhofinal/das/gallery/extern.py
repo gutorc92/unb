@@ -113,6 +113,126 @@ class Net:
 				total_dogs += per		
 		return total_dogs*100,total_cats*100
 
+class NearestNeighbors:
+    def __init__(self, K=10, Xtr=[], images_path='Photos/', img_files=[], labels=np.empty(0)):
+        # Setting defaults
+        self.K = K
+        self.Xtr = Xtr
+        self.images_path = images_path
+        self.img_files = img_files
+        self.labels = labels
+
+    def setXtr(self, Xtr):
+        """ X is N x D where each row is an example."""
+        # the nearest neighbor classifier simply remembers all the training data
+        self.Xtr = Xtr
+        
+    def setK(self, K):
+        """ K is the number of samples to be retrieved for each query."""
+        self.K = K
+
+    def setImagesPath(self,images_path):
+        self.images_path = images_path
+        
+    def setFilesList(self,img_files):
+        self.img_files = img_files
+
+    def setLabels(self,labels):
+        self.labels = labels
+        
+    def predict(self, x):
+        """ x is a test (query) sample vector of 1 x D dimensions """
+    
+        # Compare x with the training (dataset) vectors
+        # using the L1 distance (sum of absolute value differences)
+
+        # p = 1.
+        # distances = np.power(np.sum(np.power(np.abs(X-x),p), axis = 1), 1./p)
+        distances = np.sum(np.abs(self.Xtr-x), axis = 1)
+        # distances = 1-np.dot(X,x)
+    
+        # plt.figure(figsize=(15, 3))
+        # plt.plot(distances)
+        # print np.argsort(distances)
+        return np.argsort(distances) # returns an array of indices of of the samples, sorted by how similar they are to x.
+
+    def retrieve(self, x):
+        # The next 3 lines are for debugging purposes:
+        plt.figure(figsize=(5, 1))
+        plt.plot(x)
+        plt.title('Query vector')
+
+        nearest_neighbours = self.predict(x)
+
+        for n in range(self.K):
+            idx = nearest_neighbours[n]
+        
+            # predictions = zip(self.Xtr[idx][top_inds], labels[top_inds]) # showing only labels (skipping the index)
+            # for p in predictions:
+            #     print p
+            
+            ## 
+            # In the block below, instead of just showing the image in Jupyter notebook,
+            # you can create a website showing results.
+            image =  misc.imread(os.path.join(self.images_path, self.img_files[idx]))
+            plt.figure()
+            plt.imshow(image)
+            plt.axis('off')
+            if self.labels.shape[0]==0:
+                plt.title('im. idx=%d' % idx)
+            else: # Show top label in the title, if possible:
+                top_inds = self.Xtr[idx].argsort()[::-1][:5]
+                plt.title('%s   im. idx=%d' % (labels[top_inds[0]][10:], idx))
+                
+            # The next 3 lines are for debugging purposes:
+            plt.figure(figsize=(5, 1))
+            plt.plot(self.Xtr[idx])       
+            plt.title('Vector of the element ranked %d' % n)
+
+
+def get_hist(filename):
+    image =  misc.imread(filename)
+    image = image[::4,::4,:]
+    # Normalizing images:
+    im_norm = (image-image.mean())/image.std()
+    
+    # Computing a 10-bin histogram in the range [-e, +e] (1 standard deviationto 255 for each of the colours:
+    # (the first element [0] is the histogram, the second [1] is the array of bins.)
+    hist_red = np.histogram(im_norm[:,:,0], range=(-np.e,+np.e))[0] 
+    hist_green = np.histogram(im_norm[:,:,1], range=(-np.e,+np.e))[0]
+    hist_blue = np.histogram(im_norm[:,:,2], range=(-np.e,+np.e))[0]
+    # Concatenating them into a 30-dimensional vector:
+    histogram = np.concatenate((hist_red, hist_green, hist_blue)).astype(np.float)
+    return histogram/histogram.sum()
+
+def load_dataset_hist(images_path):
+    # Load/build a dataset of vectors (i.e. a big matrix) of RGB histograms.
+    vectors_filename = os.path.join(images_path, 'vectors_hist.h5')
+
+    if os.path.exists(vectors_filename):
+        print 'Loading image signatures (colour histograms) from ' + vectors_filename
+        with h5py.File(vectors_filename, 'r') as f:
+            vectors = f['vectors'][()]
+            img_files = f['img_files'][()]
+
+    else:
+        # Build a list of JPG files (change if you want other image types):
+        os.listdir(images_path)
+        img_files = [f for f in os.listdir(images_path) if (('jpg' in f) or ('JPG') in f)]
+
+        print 'Loading all images to the memory and pre-processing them...'
+        vectors = np.zeros((len(img_files), 30))
+        for (f,n) in zip(img_files, range(len(img_files))):
+            print '%d %s'% (n,f)
+            vectors[n] = get_hist(os.path.join(images_path, f))
+                    
+        print 'Saving descriptors and file indices to ' + vectors_filename
+        with h5py.File(vectors_filename, 'w') as f:
+            f.create_dataset('vectors', data=vectors)
+            f.create_dataset('img_files', data=img_files)
+    
+    return vectors, img_files
+
 class Input:
 
 	FACES = 1

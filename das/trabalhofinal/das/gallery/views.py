@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from .forms import FileFieldForm
 from django.conf import settings
-from extern import Input, Net, Face, Output
+from extern import *
 import os
 from os import walk
 
@@ -32,6 +32,11 @@ class CreateGallery(View):
                     dogs,cats = n.result(d.getImage(Input.PREDICTION))
                     o.outAnimals(dogs,cats)
 
+            vectors, img_files = load_dataset(path_img)
+            KNN = NearestNeighbors(Xtr=vectors, img_files=img_files, images_path=path_img, labels=labels)
+
+# Freeing memory:
+            del vectors
             return self.get(request)
 
         else:
