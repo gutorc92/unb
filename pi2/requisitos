@@ -1,0 +1,33 @@
+O desenvolvimento da eletrônica possibilitou a criação de máquinas cada vez mais autônomas, os CNC(Computer
+Numerical Control) se encaixam nesses tipo de equipamento. O CNC é utilizado para a manufatura de pecas geradas
+a partir de softwares de desenho. O CNC é um sistema complexo que envolve diversas partes como controle de motores de passos,
+interpretação de arquivos de desenho e tantos outros. O tempo de trabalho faz necessário a limitação do escopo a ser desenvolvido, portanto o projeto Ex-maquina objetiva a construção de um CNC capaz de fresar e marcar matérias de mdf enviados por clientes que atenda
+aos requisitos abaixo listados: 
+1) Plataforma para o gerenciamento de serviços solicitados pelos clientes.
+2) Modulo de comunicação, por rede sem fio, a plataforma de gerenciamento.
+3) Modulo de fresa e marcação.
+
+Os requisitos acima podem ser desdobrados em subitens para a compreensão adequada 
+do escopo:
+
+Plataforma para o gerenciamento de serviços solicitados pelos clientes
+1) O cliente poderá se cadastrar.
+2) O cliente poderá cadastrar um serviço.
+3) O cliente pode excluir o serviços.
+4) O administrador poderá excluir um serviço
+5) O administrador deve autorizar o começo do serviço.
+4) A plataforma deve gerar e enviar códigos g-code para o modulo de comunicação.
+
+Modulo de comunicação por rede sem fio a plataforma de gerenciamento
+1) Deve se conectar em redes sem fio.
+2) Deve receber arquivos da plataforma.
+3) Enviar os arquivos para o modulo de fresa e marcação.
+
+Modulo de fresa e marcação
+1) Fresar matérias em mdf.
+2) Marcar matérias em mdf.
+3) Informar termino do serviço.
+
+
+
+ 
