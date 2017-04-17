@@ -1,0 +1,15 @@
+idPessoa,cpf,nome,dt_nascimento,login,password,sexo,idade,"cidade de nascimento",pais_origem,nome_mae,nome_pai,tipo_pessoa
+1,"1","Thiago Silva","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+2,"2","David Luiz","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+3,"3","Daniel Alves","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+4,"4","Julio César","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+5,"5","Marcelo","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+6,"6","Luiz Gustavo","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+7,"7","Paulinho","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+8,"8","Oscar","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+9,"9","Hulk","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+10,"10","Neymar","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+11,"11","Fred","1971-05-01",,,1,23,"Sem cidade",Brasil,,NULL,Atleta
+12,"12","Thomas Muller","1971-05-01",,,1,23,"Sem cidade",Alemanha,,NULL,Atleta
+13,"13","Toni Kroos","1971-05-01",,,1,23,"Sem cidade",Alemanha,,NULL,Atleta
+14,"14","Andre Schurrle","1971-05-01",,,1,23,"Sem cidade",Alemanha,,NULL,Atleta
