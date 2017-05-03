@@ -8,8 +8,7 @@ create:
 	$(CC) $(OBJ)
 
 spell:
-	aspell -t -c --lang=pt_br $(OBJ)
-
+	./check_files.sh
 
 clean:
 	rm -f *.aux *.toc $(CDIR)/*.aux 
